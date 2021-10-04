@@ -1,0 +1,46 @@
+﻿@model Revifast.Models.Reserva
+
+@{
+    ViewData["Title"] = "Delete";
+}
+    <body style="background-color:black;">
+    </body>
+<h1 style="color:white">Delete</h1>
+
+<h3 style="color:white">¿Estas seguro de que quieres eliminar esta reserva?</h3>
+<div>
+    <h4 style="color:white">Reserva</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2" style="color:white">
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+        <dd class = "col-sm-10" style="color:white">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt class = "col-sm-2" style="color:white">
+            @Html.DisplayNameFor(model => model.Observaciones)
+        </dt>
+        <dd class = "col-sm-10" style="color:white">
+            @Html.DisplayFor(model => model.Observaciones)
+        </dd>
+        <dt class = "col-sm-2" style="color:white">
+            @Html.DisplayNameFor(model => model.Empresa)
+        </dt>
+        <dd class = "col-sm-10" style="color:white">
+            @Html.DisplayFor(model => model.Empresa.EmpresaId)
+        </dd class>
+        <dt class = "col-sm-2" style="color:white">
+            @Html.DisplayNameFor(model => model.Vehiculo)
+        </dt>
+        <dd class = "col-sm-10" style="color:white">
+            @Html.DisplayFor(model => model.Vehiculo.VehiculoId)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ReservaId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

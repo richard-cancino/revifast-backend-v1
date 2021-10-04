@@ -1,0 +1,42 @@
+﻿@model Revifast.Models.Conductor
+
+@{
+    ViewData["Title"] = "Mi Cuenta";
+}
+
+<body style="background-color:black;">
+</body>
+<h1 style="color:white">Mi cuenta</h1>
+
+
+@if (Model == null)
+{
+    <p>
+        Usted no ha registado sus datos, para realizarlo ingrese aquí <a asp-action="Create">Registrar Datos</a>
+    </p>
+}
+else
+{
+    <table class="table" style="color:white">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Nombres)
+                </th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Nombres)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@Model.ConductorId">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@Model.ConductorId">Ver detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@Model.ConductorId">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}

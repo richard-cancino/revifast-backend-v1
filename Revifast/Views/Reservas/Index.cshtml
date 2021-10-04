@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Revifast.Models.Reserva>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <body style="background-color:black;">
+    </body>
+<h1 style="color:white" >Genera tu Reserva </h1>
+
+<p>
+    <a asp-action="Create">Registrar Reserva</a>
+</p>
+<table class="table"  style="color:white">
+    <thead>
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Observaciones)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Empresa)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Vehiculo)
+            </th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empresa.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehiculo.Placa)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ReservaId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ReservaId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ReservaId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
